@@ -16,7 +16,7 @@ Both versions contain documentation using doxygen.
 Assignment 1 was created with limited knowledge of object-oriented programming and no knowledge of any standardized/automated testing. The testing done is all manual testing. The specification was also provided in a natural language.
 
 ### A2
-Assignment 2 was created with a basic understanding of object-oriented programming and unit testing. The version uses pytest (python unit testing) and has an implementation following an object-oriented programming style. The specification provided was also a formal specification.
+Assignment 2 was created with a basic understanding of object-oriented programming and unit testing. The version uses pytest (python unit testing) and has an implementation following an object-oriented programming style. The specification provided was also a formal specification. Assignment 2 was also written following the flake8 style guide.
 
 ## How To Run
 To run the test:
@@ -37,3 +37,4 @@ To removed the docs:
     * Unit Testing
 * Documenting Code
 * Reading a Specification
+* flake8 Programming Style Guide
