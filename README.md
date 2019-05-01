@@ -2,7 +2,7 @@
 Assignment 1 &amp; 2 for SFWRENG 2AA4 - Software Design I - Introduction to Software Development
 
 ## Overview
-A python program to allocate engineering students from first year into their second year programs.
+A python 3 program to allocate engineering students from first year into their second year programs.
 
 ## How It Works
 In the McMaster University Engineering Program, the first year is general engineering. In second year, the students get to specialize into 1 of 7 programs. Due to limited capacity of each stream, not all students can be allocated to their first choice.
