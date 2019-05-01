@@ -1,0 +1,6 @@
+macid,fname,lname,gender,gpa,choice1,choice2,choice3
+lairm4,Marquitta,Laira,female,10.3,materials,civil,chemical
+recas9,Stuart,Recaredo,female,9.6,software,electrical,mechanical
+torcm6,Mamoun,Torcuata,male,8.2,engphys,mechanical,chemical
+barbw9,Waleska,Barbar,male,2.0,electrical,mechanical,materials
+zouhm7,Merri,Zouheir,female,11.4,chemical,engphys,materials

@@ -1,0 +1,857 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\newcommand{\latex}{\LaTeX\xspace}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+\renewcommand\baselinestretch{1.0}
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{Assignment 2}
+\author{COMP SCI 2ME3 and SFWR ENG 2AA4}
+
+\begin {document}
+
+\maketitle
+
+\section{Dates and Deadlines}
+
+\begin{description}
+\item [Assigned:] January 29, 2019
+\item [Part 1:]  February 11, 2019
+\item [Receive Partner Files:] February 16, 2019
+\item [Part 2:] February 18, 2019
+\item [Last Revised:] \today
+\end{description}
+
+\noindent All submissions are made through git, using your own repo located at:\\
+
+\texttt{https://gitlab.cas.mcmaster.ca/se2aa4\_cs2me3\_assignments\_2018/[macid].git}\\
+
+\noindent where \texttt{[macid]} should be replaced with your actual macid.  The
+time for all deadlines is 11:59 pm.  If you notice problems in your Part 1 {\tt
+  *.py} files after the deadline, you should fix the problems and discuss them
+in your Part 2 report.  However, the code files submitted for the Part 1
+deadline will be the ones graded.
+
+\section{Introduction}
+
+The purpose of this software design exercise is to write a Python program that
+follows the given formal specification.  The given specification covers a
+problem similar to A1 - the allocation of first year engineering students into
+their respective second year programs.  As for the previous assignment, you will
+use doxygen, make, LaTeX and Python (version 3).  In addition, this assignment
+will use pytest for unit testing and flake8 to verify that its
+pep8-inspired standard is enforced.  This assignment also takes
+advantage of functional programming in Python.
+
+All of your code, except for the testing files, should be documented using
+doxygen.  Using doxygen on the testing files is optional.  Your report should be
+written using \latex.  Your code should follow the given specification exactly.
+In particular, you should not add public methods or procedures that are not
+specified and you should not change the number or order of parameters for
+methods or procedures.  If you need private methods or procedures, please use
+the Python convention of naming the files with the double underscore
+(\texttt{\_\_methodName\_\_}) (dunders).  \textbf{Please follow specified naming
+  EXACTLY.  You do not want to lose marks for a simple mistake.}
+
+For the purpose of understandability, the specification provided at the end of
+the assignment uses notation that is slightly different from the Hoffman and
+Strooper notation.  Specifically the types for real and natural numbers are
+represented by $\mathbb{R}$ and $\mathbb{N}$, respectively.  (In this
+specification, the natural numbers are assumed to include 0.)  Booleans are
+represented by $\mathbb{B}$.  Also, subscripts are used for indexing a sequence.
+For instance, $x_i$ means the same thing as $x[i]$.  A subsection has also been
+added to the template for local types.  The purpose of these local types is for
+specification; they are not exported.
+
+\subsection{Installing flake8}
+
+We will use flake8 to ensure your Python code meets the style conventions of
+the course. You will need to install two `pip' packages. This is the standard
+way to install packages for Python.
+
+First run the following command in your terminal:
+
+\begin{verbatim}
+pip --version
+\end{verbatim}
+
+If the output includes `Python 3,' then run the following instructions:
+
+\begin{verbatim}
+pip install flake8
+pip install pep8-naming
+\end{verbatim}
+
+\textbf{If it does not,} then use \texttt{pip3} for the following alternate instructions.
+
+\begin{verbatim}
+pip3 install flake8
+pip3 install pep8-naming
+\end{verbatim}
+
+\subsection{Running flake8}
+
+Run the following command in your A2 directory.  This will inform you of the
+location and types of style violations.  You can find more information on what
+each error means here: https://lintlyci.github.io/Flake8Rules/
+
+\begin{verbatim}
+flake8
+\end{verbatim}
+
+\section*{Part 1}
+
+\section *{Step \refstepcounter{stepnum} \thestepnum}
+
+Write the modules \texttt{StdntAllocTypes.py}, \texttt{SeqADT.py},
+\texttt{DCapALst.py}, \texttt{AALst.py}, \texttt{SALst.py} and \texttt{Read.py}
+following the specification given at the end of the assignment.
+
+\section *{Step \refstepcounter{stepnum} \thestepnum}
+
+Write a module (named {\tt test\_All.py}), using pytest, that tests the
+following modules: {\tt SeqADT.py}, {\tt DCapALst.py} and {\tt SALst.py}.  The
+given makefile {\tt Makefile} has a rule \texttt{test} for running your tests.
+Each procedure/method should have at least one test case.  Record your rationale for
+test case selection and the results of using this module to test the procedures
+in your modules.  (You will submit your rationale with your report in
+Step~\ref{StepReport}.)  Please make an effort to test normal cases, boundary
+cases, and exception cases.  Your test program should compare the calculated
+output to the expected output and provide a summary of the number of test case
+that have passed or failed.
+
+\section *{Step \refstepcounter{stepnum} \thestepnum}
+
+Test the supplied \texttt{Makefile} rule for {\tt doc}.  This rule should
+compile your documentation into an html and \latex version.  Along with the
+supplied \texttt{Makefile}, a doxygen configuration file is also given in your
+initial repo.  You should not have to change these files.
+
+\section *{Step \refstepcounter{stepnum} \thestepnum}
+
+Submit (add, commit and push) all Python files using git.  (Of course, you will
+be doing this throughout the development process.  This step is to explicitly
+remind you that the version that will be graded is the one we see in the repo.)
+Please \textbf{do not change} the names and locations for the files already
+given in your git project repo.  You should also push any input data files you
+created for testing purposes.  For Part 1, the only files that you should modify
+are the Python files and the only ``new'' files you should create are the input
+data files.  Changing other files could result in a serious grading penalty,
+since the TAs might not be able to run your code and documentation generation.
+You should NOT submit your generated documentation (html and latex folders).  In
+general, files that can be regenerated are not put under version control.
+
+Optionally, you can tag your final submission of Part 1 of the assignment with
+the label \texttt{A2Part1}.
+
+\section*{Part 2}
+
+Your {\tt SeqADT.py}, {\tt DCapALst.py} and {\tt SALst.py} files will
+automatically be pushed to your partner's repo and vice versa.
+\textbf{Including your name in your partner code files is optional.} 
+
+\section *{Step \refstepcounter{stepnum} \thestepnum}
+
+After you have received your partner's files, replace your corresponding files
+with your partner's.  Do not initially make any modifications to any of the
+code.  Run your test module and record the results.  Your evaluation for this
+step does not depend on the quality of your partner's code, but only on your
+discussion of the testing results.  If the tests fail, for the purposes of
+understanding what happened, you are allowed to modify your partner's code.
+
+\section *{Step \refstepcounter{stepnum} \thestepnum \label{StepReport}} 
+
+Write a report using \latex (\texttt{report.tex}) following the template given
+in your repo.  Optionally, the final submission can have the tag
+\texttt{A2Part2}.  The report should include the following:
+
+\begin{enumerate}
+\item Your name and macid.
+\item Your updated Python files.
+\item Your partner's files.
+\item The results of testing your files (along with the rational for test case
+  selection).  The summary of the results should consist of the following: the
+  number of passed and failed test cases, and brief details on any failed test
+  cases.
+\item The results of testing your files combined with your partner's files.
+\item A discussion of the test results and what you learned doing the exercise.
+  List any problems you found with
+\begin{inparaenum} 
+\item your program,
+\item your partner's module, and
+\end{inparaenum}
+\item The specification of this assignment imposed design decisions on you.
+  Please provide a critiques of the design.  What did you like?  What areas need
+  improvement?  How would you propose changing the design?
+\item Answers to the following questions
+\begin{enumerate}[a)]
+\item Contrast the natural language of A1 to the formal specifiation of A2.
+  What are the advantages and disadvantages of each approach?
+\item The specification makes the assumption that the gpa will be between 0 and
+  12.  How would you modify the specification to change this assumption to an
+  exception?  Would you need to modify the specification to replace a record
+  type with a new ADT?
+\item If we ignore the functions \texttt{sort}, \texttt{average} and
+  \texttt{allocate}, the two modules \texttt{SALst} and \texttt{DCapALst} are
+  very similar.  Ignoring the functions mentioned, how could the documentation
+  be modified to take advantage of the similarities?
+\item A1 had a question about generality of an interface.  In what ways is A2
+  more general than A1?
+\item The list of choices for each student is represented by a custom object,
+  SeqADT, instead of a Python list.  For this specific usage, what are the
+  advantages of using SeqADT over a regular list?
+\item Many of the strings in A1 have been replaced by enums in A2.  For these
+  cases, what advantages do enums provide?  Why weren't enums also introduced in
+  the specification for macids?  
+\end{enumerate}
+\end{enumerate}
+
+The writing style for the report should be professional, but writing in the
+first person is fine.  Some of your ideas can be summarized in lists, but most
+of the report should be written in full sentences.  Spelling and grammar is
+important.
+
+Commit and push \texttt {report.tex} and \texttt{report.pdf}.  Although the pdf
+file is a generated file, for the purpose of helping the TAs, we'll make an
+exception to the general rule of avoiding version control for generated files.
+If you have made any changes to your Python files, you should also push those
+changes.
+
+\subsubsection*{Notes}
+
+\begin{enumerate}
+\item Your git repo will be organized with the following directories at the
+  top level: {\tt A1}, {\tt A2}, {\tt A3}, and {\tt A4}. 
+\item Inside the {\tt A2} folder you will start with initial stubs of the files
+  and folders that you need to use.  Please do not change the names or locations
+  of any of these files or folders.
+\item Please put your name and macid at the top of each of your source
+  files, except for those that you share with a partner.  Including your name
+  and macid is optional for those files.
+\item Your program must work on mills when compiled with its versions of Python
+  (version 3), LaTeX, doxygen, make, pytest, pytest-cov, and flake8.
+\item Python specifics:
+\begin{itemize}
+\item The exceptions in the specification are intentionally selected to use the
+  names of existing Python exceptions.  There is no need to define new
+  exceptions.
+\item Although efficient use of computing resources is always a good goal, your
+  implementation will be judged on correctness and not on performance.
+\item For the Python implementation of an abstract module, use
+  \texttt{@staticmethod}.  Your access programs should be called via the module
+  name followed by a dot and then the access program name.  For instance, for a
+  module named \texttt{Data}, the access program is accessed using
+  \texttt{Data.accessProg}, not simply \texttt{accessProg} or
+  \texttt{Data\_accessProg}.  The call \texttt{Data.Data\_accessProg} is also
+  incorrect.
+\item For types that are defined as a set of potential values (like GenT), you
+  should use an enumerated type
+  (\href{https://docs.python.org/3/library/enum.html}
+  {https://docs.python.org/3/library/enum.html}).
+\item For types that are simply records, use the \texttt{typing.NamedTuple}
+  class from
+  \href{https://docs.python.org/3/library/typing.html#typing.NamedTuple}
+  {https://docs.python.org/3/library/typing.html\#typing.NamedTuple}.
+\item Since the specification is silent on this point, for methods that return
+  an object, or use objects in their state, you can decide to either use
+  references or construct new objects.  The implementation will be easier if you
+  just work in terms of references to objects.
+\item A sample program (\texttt{A2Examples.py}) that uses the modules in this
+  specification is available in the repo.  You can use this to do an initial
+  test that your interface matches the specification.
+\item Sample files (\texttt{StdntData.txt} and \texttt{DeptCap.txt}) are
+  available in the repo.
+\item Marking scheme will be available in the course repo.  The marking scheme
+  will include some grades based on git usage, make, unit testing, and flake8.
+\end{itemize}
+\item \textbf{Your grade will be based to a significant extent on the ability of
+    your code to compile and its correctness.  If your code does not compile,
+    then your grade will be significantly reduced.}
+\item \textbf{Any changes to the assignment specification will be announced in
+    class.  It is your responsibility to be aware of these changes.  Please
+    monitor all pushes to the course git repo.}
+\end{enumerate}
+
+\newpage
+
+\section* {Student Allocation Types Module}
+
+\subsection*{Module}
+
+StdntAllocTypes
+
+\subsection* {Uses}
+
+SeqADT(T)
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Types}
+
+GenT = \{male, female\}\\ 
+DeptT = \{civil, chemical, electrical, mechanical, software, materials, engphys\}\\
+~\\
+SInfoT = tuple of (fname: string, lname: string, gender: GenT, gpa:
+$\mathbb{R}$, choices: SeqADT(DeptT), freechoice: $\mathbb{B}$)
+
+\subsubsection* {Exported Access Programs}
+
+None
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+None
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions}
+
+For SInfoT the gpa will always lie between 0 and 12.0.
+
+\newpage
+
+\section* {Sequence ADT Module}
+
+\subsection*{Generic Template Module}
+
+SeqADT(T)
+
+\subsection* {Uses}
+
+None
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Types}
+
+SeqADT = ?
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+new SeqADT & sequence of T & SeqADT & ~\\
+\hline
+start & ~ & ~ & ~\\
+\hline
+next & ~ & T & StopIteration\\
+\hline
+end & ~ & $\mathbb{B}$ & ~\\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$s$: sequence of T\\
+$i$: integer
+
+\subsubsection* {State Invariant}
+
+$i \in [0..|s|]$
+
+\subsubsection* {Assumptions}
+
+The constructor for SeqADT will not be called with an empty sequence as input.
+
+\subsubsection* {Access Routine Semantics}
+
+\noindent new SeqADT($x$):
+\begin{itemize}
+\item transition: $s, i := x, 0$
+\item output: $out := \mbox{self}$
+\item exception: none
+\end{itemize}
+
+\noindent start():
+\begin{itemize}
+\item transition: $i := 0$
+\item exception: none
+\end{itemize}
+
+\noindent next():
+\begin{itemize}
+\item transition-output: $i, out := i + 1, s[i]$
+\item exception: $( i \geq (|s|) \Rightarrow \text{StopIteration})$
+\end{itemize}
+
+\noindent end():
+\begin{itemize}
+\item output: $out := i \geq |s|$
+\item exception: None
+\end{itemize}
+
+\newpage
+
+\section* {Department Capacity Association List Module}
+
+\subsection*{Module}
+
+DCapALst
+
+\subsection* {Uses}
+
+StdntAllocTypes
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Types}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+init & ~ & ~ & ~\\
+\hline
+add & DeptT, $\mathbb{N}$ & ~ & KeyError\\
+\hline
+remove & DeptT & ~ & KeyError\\
+\hline
+elm & DeptT & $\mathbb{B}$ & ~\\
+\hline
+capacity & DeptT & $\mathbb{N}$ & KeyError\\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$s$: set of tuple of (dept: DeptT, cap: $\mathbb{N}$)
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions}
+
+DCapALst.init() is called before any other access program.
+
+\subsubsection* {Access Routine Semantics}
+
+\noindent init():
+\begin{itemize}
+\item transition: $s := \{ \}$
+\item exception: none
+\end{itemize}
+
+\noindent add($d$, $n$):
+\begin{itemize}
+\item transition: $s := s \cup \{ \langle d, n \rangle \}$
+\item exception: $(\langle d, ? \rangle \in s \Rightarrow \text{KeyError} )$
+  (? can be any natural number)
+\end{itemize}
+
+\noindent remove($d$):
+\begin{itemize}
+\item transition: $s := s - \{ \langle d, n \rangle \}$ where $\langle d, n
+  \rangle \in s$
+\item exception: $(\langle d, n \rangle \notin s \Rightarrow \text{KeyError} )$
+\end{itemize}
+
+\noindent elm($d$):
+\begin{itemize}
+\item output: $out := \langle d, n \rangle \in s$
+\item exception: none
+\end{itemize}
+
+\noindent capacity($d$):
+\begin{itemize}
+\item output: $out := n$ where $\langle d, n \rangle \in s$
+\item exception: $(\langle d, n \rangle \notin s \Rightarrow \text{KeyError} )$
+\end{itemize}
+
+\newpage
+
+\section* {Allocation Association List Module}
+
+\subsection*{Module}
+
+AALst
+
+\subsection* {Uses}
+
+StdntAllocTypes
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Types}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+init & ~ & ~ & ~\\
+\hline
+add\_stdnt & DeptT, string & ~ & ~\\
+\hline
+lst\_alloc & DeptT & sequence of string & ~\\
+\hline
+num\_alloc & DeptT & $\mathbb{N}$ & ~\\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$s$: set of AllocAssocListT
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions}
+
+AALst.init() is called before any other access program.
+
+\subsubsection* {Access Routine Semantics}
+
+\noindent init():
+\begin{itemize}
+\item transition: $s := \{ d: \text{DeptT} | d \in \text{DeptT} : \langle d, []
+  \rangle \}$
+\item exception: none
+\end{itemize}
+
+\noindent add\_stdnt($\mathit{dep}$, $m$):
+\begin{itemize}
+\item transition: $s := \{ \langle d, L \rangle : \text{AllocAssocListT} |
+  \langle d, L \rangle \in s : (d = \mathit{dep} \Rightarrow \langle d, L || [m] \rangle
+   | \text{True} \Rightarrow \langle d, L \rangle) \}$
+\item exception: none
+\end{itemize}
+
+\noindent lst\_alloc($d$):
+\begin{itemize}
+\item output: $out := L$ where $\langle d, L \rangle \in s$
+\item exception: none
+\end{itemize}
+
+\noindent num\_alloc($d$):
+\begin{itemize}
+\item output: $out := |L|$ where $\langle d, L \rangle \in s$
+\item exception: none
+\end{itemize}
+
+\subsection*{Local Types}
+
+AllocAssocListT = tuple of (dept: DeptT, sequence of string)
+
+\newpage
+
+\section* {Student Association List Module}
+
+\subsection*{Module}
+
+SALst
+
+\subsection* {Uses}
+
+StdntAllocTypes\\
+AALst\\
+DCapALst
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Types}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+init & ~ & ~ & ~\\
+\hline
+add & string, SInfoT & ~ & KeyError\\
+\hline
+remove & string & ~ & KeyError\\
+\hline
+elm & string & $\mathbb{B}$ & ~\\
+\hline
+info & string & SInfoT & KeyError\\
+\hline
+sort & $\text{SInfoT} \rightarrow \mathbb{B}$ & sequence of string & ~\\
+\hline
+average & $\text{SInfoT} \rightarrow \mathbb{B}$ & $\mathbb{R}$ & ValueError\\
+\hline
+allocate & ~ & ~ & RuntimeError\\
+\hline
+
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$s$: set of StudentT
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions}
+
+SALst.init() is called before any other access program.
+DCapALst has been fully populated for all departments before running
+allocate.  The following assumptions apply to the data:
+\begin{itemize}
+	\item The free choice students will never number so many that they will
+          fill a department.
+        \item The case will never arise where the next student to be added to a
+          department will exceed the capacity of the department, but have the
+          exact same gpa as the last student allocated to that department,
+\end{itemize}
+
+\subsubsection* {Access Routine Semantics}
+
+\noindent init():
+\begin{itemize}
+\item transition: $s := \{ \}$
+\item exception: none
+\end{itemize}
+
+\noindent add($m$, $i$):
+\begin{itemize}
+\item transition: $s := s \cup \{ \langle m, i \rangle \}$
+\item exception: $(\langle m, ? \rangle \in s \Rightarrow \text{KeyError} )$
+\end{itemize}
+
+\noindent remove($m$):
+\begin{itemize}
+\item transition: $s := s - \{ \langle m, i \rangle \}$ where $\langle m, i
+  \rangle \in s$
+\item exception: $(\langle m, i \rangle \notin s \Rightarrow \text{KeyError} )$
+\end{itemize}
+
+\noindent elm($m$):
+\begin{itemize}
+\item output: $out := \langle m, i \rangle \in s$
+\item exception: none
+\end{itemize}
+
+\noindent info($m$):
+\begin{itemize}
+\item output: $out := i$ where $\langle m, i \rangle \in s$
+\item exception: $(\langle m, i \rangle \notin s \Rightarrow \text{KeyError} )$
+\end{itemize}
+
+\noindent sort($f$):
+\begin{itemize}
+\item output: 
+$out := L: \text{sequence of string}$, such that\\
+$(\forall \langle m, i \rangle : \text{StudentT} |
+  \langle m, i \rangle \in s \wedge f(i) : (\exists j: \mathbb{N} | j \in [0 .. |s| - 1] :
+  L_j = m)) \wedge (\forall k:\mathbb{N} | k \in [0..|L|-2] :
+  \text{get\_gpa}(L_k, s) \geq \text{get\_gpa}(L_{k+1}, s))$
+\item exception: none
+\end{itemize}
+
+\noindent average($f$):
+\begin{itemize}
+\item output: $$out := \frac{(+ i : \text{SInfoT} | i \in \mathit{fset}: i.\text{gpa})}{|\mathit{fset}|}
+  \text{ where }
+  \mathit{fset} = \{ \langle m, i \rangle : \text{StudentT} | \langle m, i
+  \rangle \in s \wedge f(i): i \}$$
+\item exception: $(\{ \langle m, i \rangle : \text{StudentT} | \langle m, i
+  \rangle \in s \wedge f(i): i \} = \emptyset \Rightarrow \text{ValueError})$
+\end{itemize}
+
+\noindent allocate():
+\begin{itemize}
+\item transition: \textit{\# procedural specification}\\
+$\text{AALst.init()}$\\
+$F = \text{SALst.sort}(\lambda t \rightarrow t.\text{freechoice} \wedge
+t.\text{gpa} \geq 4.0)$\\
+for all $m$ in $F$\\
+$~~~~~ch = \text{SALst.info}(m).\text{choices}$\\
+$~~~~~\text{AALst.add\_stdnt}(ch.\text{next}(), m)$\\
+~\\
+$S = \text{SALst.sort}(\lambda t \rightarrow \neg t.\text{freechoice} \wedge
+t.\text{gpa} \geq 4.0)$\\
+for all $m$ in $S$\\
+$~~~~~ch = \text{SALst.info}(m).\text{choices}$\\
+$~~~~~\mathit{alloc} = \text{False}$\\
+$~~~~~\text{while } \neg \mathit{alloc} \wedge \neg ch.\text{end}()$\\
+$~~~~~~~~d = ch.\text{next}()$\\
+$~~~~~~~~\text{if AALst.num\_alloc}(d) < \text{DCapALst.capacity}(d)$\\
+$~~~~~~~~~~\text{AALst.add\_stdnt}(d, m)$\\
+$~~~~~~~~~~\mathit{alloc} = \text{True}$\\
+$~~~~~\text{if } \neg \mathit{alloc} \text{ raise(RuntimeError)}$
+
+\item exception: none
+\end{itemize}
+
+\subsection*{Local Types}
+
+StudentT = tuple of (macid: string, info: SInfoT)
+
+\subsection*{Local Functions}
+
+get\_gpa: $\text{string} \times \text{set of StudentT}$\\
+
+\noindent get\_gpa($m$, $s$) $\equiv i.\text{gpa} \text{ for } \langle m, i \rangle
+\in s $\\
+
+\newpage
+
+\section* {Read Module}
+
+\subsection* {Module}
+
+Read
+
+\subsection* {Uses}
+
+StdntAllocTypes, DCapALst, SALst
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+load\_stdnt\_data & $s: \mbox{string}$ & ~ & ~\\
+\hline
+load\_dcap\_data & $s: \mbox{string}$ & ~ & ~\\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {Environment Variables}
+
+stdnt\_data: File listing student data\\
+dept\_capacity: File listing department capacities
+
+\subsubsection* {State Variables}
+
+None
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions}
+
+The input file will match the given specification.
+
+\subsubsection* {Access Routine Semantics}
+
+\noindent load\_stdnt\_data($s$)
+\begin{itemize}
+\item transition: read data from the file stdnt\_data associated with the string s.
+  Use this data to update the state of the SALst module.  Load will first
+  initialize SALst (SALst.init()) before populating SALst with student data that
+  follows the types in StdntAllocTypes.
+
+  The text file has the following format, where $id_i$, $fn_i$, $ln_i$, $g_i$,
+  $gpa_i$, $[ch_i^0, ch_i^1, ..., ch_i^{n-1}]$ and $fc_i$ stand for strings that
+  represent the ith student's macid, first name, last name, gender, grade point
+  average, list of choices and free choice, respectively.  The gender is
+  represented by either the string ``male'' or ``female.''  The list of choices
+  comes from strings following the department names in the type DeptT.  The list
+  of choices has length $n$.  $fc_i$ is either the string ``True'' or the string
+  ``False.''  All data values in a row are separated by commas.  Rows are
+  separated by a new line.  The data shown below is for a total of $m$ students.
+
+  \begin{equation}
+    \begin{array}{ccccccc}
+      id_0, & fn_0, & ln_0, & g_0, & gpa_0, & [ch_0^0, ch_0^1, ..., ch_0^{n-1}], & fc_0 \\
+      id_1, & fn_1, & ln_1, & g_1, & gpa_1, & [ch_1^0, ch_1^1, ..., ch_1^{n-1}], & fc_1\\
+      id_2, & fn_2, & ln_2, & g_2, & gpa_2, & [ch_2^0, ch_2^1, ..., ch_2^{n-1}], & fc_2
+      \\
+      ..., & ..., & ..., & ..., & ..., & [..., ..., ], & ...
+      \\
+      id_{m-1}, & fn_{m-1}, & ln_{m-1}, & g_{m-1}, & gpa_{m-1}, & [ch_{m-1}^0, ch_{m-1}^1, ..., ch_{m-1}^{n-1}], & fc_{m-1} \\
+    \end{array}
+  \end{equation}
+
+\item exception: none
+\end{itemize}
+
+\noindent load\_dcap\_data ($s$)
+\begin{itemize}
+\item transition: read data from the file dept\_capacity associated with the string s.
+  Use this data to update the state of the DCapALst module.  Load will first
+  initialize DCapALst (DCapALst.init()) before populating DCapALst with
+  department capacity data.
+
+  The text file has the following format.  Each department is identified by a
+  string with the department name, and then a string for the natural number that
+  represents the department's capacity.  All data values in a row are
+  separated by commas.  Rows are separated by a new line.
+
+  \begin{tabular}{ll}
+    civil, & $n_\text{civil}$\\
+    chemical, & $n_\text{chemical}$\\
+    electrical, & $n_\text{electrical}$\\
+    mechanical, & $n_\text{mechanical}$\\
+    software, & $n_\text{software}$\\
+    materials, & $n_\text{materials}$\\
+    engphys, & $n_\text{engphys}$\\
+  \end{tabular}
+
+\item exception: none
+\end{itemize}
+
+\end {document}

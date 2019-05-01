@@ -1,0 +1,8 @@
+department,capacity
+civil,1000
+chemical,750
+electrical,1000
+mechanical,1500
+software,250
+materials,150
+engphys,150

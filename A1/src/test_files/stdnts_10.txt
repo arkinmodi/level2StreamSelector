@@ -1,0 +1,11 @@
+macid,fname,lname,gender,gpa,choice1,choice2,choice3
+rahum2,Markus,Rahul,female,3.9,software,electrical,mechanical
+oroia1,Anouk,Oroitz,female,7.2,mechanical,software,electrical
+jasmm7,Miley,Jasmine,female,8.6,civil,chemical,software
+teodk5,Kaoussou,Teodosi,female,4.7,chemical,materials,mechanical
+adols1,Simas,Adolfa,female,10.3,materials,electrical,mechanical
+tanjz5,Zviadi,Tanja,male,5.3,engphys,materials,chemical
+grazh8,Heidi,Graziela,male,6.9,chemical,software,mechanical
+remyk2,Kwame,Remy,female,4.4,materials,electrical,civil
+elunn3,Nabiha,Eluney,male,8.6,mechanical,electrical,materials
+colll4,Lynsey,Collado,female,3.5,electrical,chemical,engphys
