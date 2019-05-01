@@ -4,6 +4,19 @@ Assignment 1 &amp; 2 for SFWRENG 2AA4 - Software Design I - Introduction to Soft
 ## Overview
 A python 3 program to allocate engineering students from first year into their second year programs.
 
+## How To Run
+To run the test:
+
+    make test
+
+To make the docs with doxygen:
+
+    make doc
+
+To removed the docs:
+
+    make clean
+
 ## How It Works
 In the McMaster University Engineering Program, the first year is general engineering. In second year, the students get to specialize into 1 of 7 programs. Due to limited capacity of each stream, not all students can be allocated to their first choice.
 
@@ -17,19 +30,6 @@ Assignment 1 was created with limited knowledge of object-oriented programming a
 
 ### A2
 Assignment 2 was created with a basic understanding of object-oriented programming and unit testing. The version uses pytest (python unit testing) and has an implementation following an object-oriented programming style. The specification provided was also a formal specification. Assignment 2 was also written following the flake8 style guide.
-
-## How To Run
-To run the test:
-
-    make test
-
-To make the docs with doxygen:
-
-    make doc
-
-To removed the docs:
-
-    make clean
 
 ## What I Learned
 * Basic Object-Oriented Programming
