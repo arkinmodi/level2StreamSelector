@@ -1,1 +1,3 @@
+# Marks all latex files to be documentation to help 
+# GitHub properly detect your repositories main language
 *.tex linguist-documentation
